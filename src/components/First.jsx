@@ -1,9 +1,15 @@
-function Func() {
-    let val = 'Пока';
+import Second from "./Second";
+function Element() {
     return (
         <>
-            <p>{val}</p>
+            <div>Первый компонент</div>
+            <Second
+                count= {false}
+                props={{
+                    lastname: 'Юрьевич',
+                    surname: 'Савеленко'
+                }} />
         </>
     )
 }
-export default Func;
+export default Element;

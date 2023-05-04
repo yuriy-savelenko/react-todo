@@ -1,12 +1,10 @@
-import Func from "./components/First";
-
-
+import Element from "./components/First";
 
 function App() {
   return (
     <div>
-      Привет
-      <Func />
+      App компонент
+      <Element />
     </div>
   );
 }
