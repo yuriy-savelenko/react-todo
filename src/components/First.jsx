@@ -4,11 +4,10 @@ function Element() {
         <>
             <div>Первый компонент</div>
             <Second
-                count= {false}
-                props={{
-                    lastname: 'Юрьевич',
-                    surname: 'Савеленко'
-                }} />
+                lastname='Юрьевич'
+                surname='Савеленко'
+                count={false}
+            />
         </>
     )
 }

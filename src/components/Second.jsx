@@ -1,14 +1,9 @@
-function Second({ props, count }) {
-    if (count) {
-        count = 'Правда'
-    } else {
-        count = 'Не правда'
-    }
+function Second({count,lastname,surname}) {
     return (
         <>
-            <p> {count}</p>
-            <p>{props.lastname}</p>
-            <p>{props.surname}</p>
+            <p> {count ? 'правда' : 'не правда'}</p>
+            <p>{lastname}</p>
+            <p>{surname}</p>
             <p>Second Component</p>
         </>
     )
