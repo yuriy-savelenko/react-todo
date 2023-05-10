@@ -1,10 +1,19 @@
-function Second({count,lastname,surname}) {
+import { useState } from "react";
+
+function Second() {
+    const [index, setIndex] = useState(0);
+    function handleClickPlus() {
+        setIndex(index + 1);
+    }
+    function handleClickMinus() {
+        setIndex(index - 1);
+    }
     return (
         <>
-            <p> {count ? 'правда' : 'не правда'}</p>
-            <p>{lastname}</p>
-            <p>{surname}</p>
-            <p>Second Component</p>
+            <button onClick={handleClickMinus}>Минус</button>
+            <button onClick={handleClickPlus}>Плюс</button>
+
+            <div>{index}</div>
         </>
     )
 }

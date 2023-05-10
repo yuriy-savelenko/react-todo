@@ -1,11 +1,10 @@
-import Element from "./components/First";
-
+import './index.scss';
+import Case from './components/Case';
+import Container from './components/Container';
 function App() {
   return (
-    <div>
-      App компонент
-      <Element />
-    </div>
+    <Container>
+    </Container>
   );
 }
 
