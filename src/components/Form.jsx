@@ -3,25 +3,29 @@ import { useState } from "react";
 
 function Form() {
     const [inputValue, setInputValue] = useState('');
+    const [submittedValues, setSubmittedValues] = useState([]);
     function getValue(event) {
         setInputValue(event.target.value)
     }
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(inputValue);
-        return (
-            <div>{inputValue}</div>
-        )
+        setSubmittedValues([...submittedValues, inputValue]);
 
     }
-
+    function handleDelete(index) {
+        setSubmittedValues(submittedValues.filter((_, i) => i !== index));
+    }
     return (
         <>
             <form onSubmit={handleSubmit} type='submit'>
                 <input value={inputValue}
                     onChange={getValue} type="text" />
                 <button>нажми</button>
+                {submittedValues.map((value, index) => (
+                    <div key={index}>{value}
+                    <button onClick={() => handleDelete(index)}>Delete</button></div>
+                ))}
             </form>
         </>
     )
