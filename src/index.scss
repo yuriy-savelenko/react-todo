@@ -16,6 +16,36 @@ body {
     height: 100vh;
 }
 
-.second {
-    color: white;
+.form {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.label,.case{
+    display: flex;
+    justify-content: center;
+}
+
+.check {
+    display: none;
+}
+
+.span {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+}
+
+.check:checked+.span::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 16px;
+    left: 6px;
+    transform: rotate(225deg);
+    border-top: 2px solid red;
+    border-left: 2px solid red;
+    opacity: 1;
 }

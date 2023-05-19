@@ -1,0 +1,51 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  background-color: rgba(51, 51, 51, 0.2);
+  background-image: url(../public/img/og-home.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.label, .case {
+  display: flex;
+  justify-content: center;
+}
+
+.check {
+  display: none;
+}
+
+.span {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+}
+
+.check:checked + .span::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 16px;
+  left: 6px;
+  transform: rotate(225deg);
+  border-top: 2px solid red;
+  border-left: 2px solid red;
+  opacity: 1;
+}/*# sourceMappingURL=index.css.map */

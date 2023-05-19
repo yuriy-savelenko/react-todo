@@ -6,20 +6,11 @@ function Test(props) {
         id: 1,
         name: 'Yruiy',
         surname: 'Savelenko'
-    }, {
-        id: 1,
-        name: 'Yruiy',
-        surname: 'Savelenko'
-    }, {
-        id: 1,
-        name: 'Yruiy',
-        surname: 'Savelenko'
     }])
     function appendElement() {
-        return (arrItem.map((el) => {
+        return (arrItem.map((el) => 
             <Test el={el} />
-            console.log('Нажал')
-        }))
+        ))
 
     }
     return (
