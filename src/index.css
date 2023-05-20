@@ -21,9 +21,46 @@ body {
   padding-top: 20px;
 }
 
-.label, .case {
+.form__container {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.input {
+  padding: 3px;
+  border-radius: 10px;
+  color: rgb(151, 72, 72);
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.select {
+  margin-left: 3px;
+  padding: 3px;
+  margin-top: 21px;
+  border-radius: 10px;
+}
+
+.case {
+  padding-top: 5px;
+}
+
+.label,
+.case {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  margin-left: 3px;
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(151, 72, 72);
 }
 
 .check {
@@ -33,9 +70,12 @@ body {
 .span {
   display: block;
   position: relative;
+  margin-left: 5px;
+  left: 10%;
   width: 20px;
   height: 20px;
   background-color: #fff;
+  border-radius: 5px;
 }
 
 .check:checked + .span::after {
@@ -45,7 +85,7 @@ body {
   height: 16px;
   left: 6px;
   transform: rotate(225deg);
-  border-top: 2px solid red;
-  border-left: 2px solid red;
+  border-top: 2px solid rgb(175, 73, 73);
+  border-left: 2px solid rgb(175, 73, 73);
   opacity: 1;
 }/*# sourceMappingURL=index.css.map */

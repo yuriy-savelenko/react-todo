@@ -1,44 +1,58 @@
 import './index.scss';
 import Form from './components/Form';
 import { useState } from 'react';
-// import Case from './components/Case';
 
 function App() {
 
   const [submittedValues, setSubmittedValues] = useState([]);
-  const [selectValue, setSelectValue] = useState('');
+  const [selectValue, setSelectValue] = useState('all');
 
+  function handleDelete(id) {
+    setSubmittedValues(submittedValues.filter((element) => element.id !== id));
+  }
 
-  function handleDelete(index) {
-    setSubmittedValues(submittedValues.filter((_, i) => i !== index));
+  const changeCheckboxValue = (id) => {
+    setSubmittedValues(submittedValues.map((e) => {
+      if (e.id === id) {
+        return {
+          ...e,
+          done: !e.done,
+        }
+      } return e;
+    }))
   }
 
   function changeSelect(event) {
     setSelectValue(event.target.value);
-    // submittedValues.filter((e) => {
-    //   if (event.target.value === 'all' && e.flag)
-    // })
-
   }
-
+  
   return (
     <div className="container">
-      <Form setSubmittedValues={setSubmittedValues} />
-      <select value={selectValue} onChange={changeSelect}>
-        <option>all</option>
-        <option>completed</option>
-        <option>uncompleted</option>
-      </select>
-      {submittedValues.map((element, index) => (
-        <div className='case' key={crypto.randomUUID()}>{element}
-          <button onClick={() => handleDelete(index)}>Delete</button>
+      <div className="form__container">
+        <Form setSubmittedValues={setSubmittedValues} />
+        <select className='select' value={selectValue} onChange={changeSelect}>
+          <option value='all'>All</option>
+          <option value='completed'>Completed</option>
+          <option value='uncompleted'>Uncompleted</option>
+
+        </select>
+      </div>
+      {submittedValues.filter((e) => {
+        if (selectValue === 'all') {
+          return true;
+        } else if (selectValue === 'completed') {
+          return e.done;
+        } else if (selectValue === 'uncompleted') {
+          return !e.done;
+        }
+      }).map((element) => (
+        <div className='case' key={element.id}>{element.value}
+          <button className='btn' onClick={() => handleDelete(element.id)}>Delete</button>
           <label className='label'>
-            <input onChange={() => {
-            }} className='check' type="checkbox" />
+            <input onChange={() => changeCheckboxValue(element.id)} className='check' type="checkbox" checked={element.done} />
             <span className='span'></span>
           </label>
         </div>
-
       ))}
 
     </div>

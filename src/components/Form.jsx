@@ -1,4 +1,3 @@
-// import Second from "./Second";
 import { useState } from "react";
 
 function Form({ setSubmittedValues }) {
@@ -10,22 +9,22 @@ function Form({ setSubmittedValues }) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        const task = {
+            id: crypto.randomUUID(),
+            done: false,
+            value: inputValue
+        }
 
-        // const task = {
-        //     id: { id },
-        //     done: false,
-        //     value: { inputValue }
-        // }
         if (inputValue !== '' && inputValue !== ' ') {
-            setSubmittedValues((current) => [...current, inputValue]);
+            setSubmittedValues((current) => [...current, task]);
         }
     }
 
     return (
         <form className="form" onSubmit={handleSubmit} type='submit'>
-            <input value={inputValue}
+            <input className="input" value={inputValue}
                 onChange={getValue} type="text" />
-            <button>нажми</button>
+            <button className="btn">нажми</button>
         </form>
     )
 }
