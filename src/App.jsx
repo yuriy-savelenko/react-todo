@@ -1,11 +1,17 @@
 import './index.scss';
 import Form from './components/Form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [submittedValues, setSubmittedValues] = useState([]);
+  const [submittedValues, setSubmittedValues] = useState(JSON.parse(localStorage.getItem('todos') || []));
   const [selectValue, setSelectValue] = useState('all');
+
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(submittedValues))
+  }, [submittedValues])
+
 
   function handleDelete(id) {
     setSubmittedValues(submittedValues.filter((element) => element.id !== id));
@@ -25,7 +31,7 @@ function App() {
   function changeSelect(event) {
     setSelectValue(event.target.value);
   }
-  
+
   return (
     <div className="container">
       <div className="form__container">

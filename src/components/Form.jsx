@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Form({ setSubmittedValues }) {
     const [inputValue, setInputValue] = useState('');
-
+    
     function getValue(event) {
         setInputValue(event.target.value)
     }
